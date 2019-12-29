@@ -163,7 +163,7 @@ xlim([20 200])
 ylim([-1 1])
 
 %%
-% Plot pdf of data and the analytically expected pdf (Figure 1C and 1D). Uncomment 170-176 for the red curve.
+% Plot pdf of data and the analytically expected pdf (Figure 1C and 1D). Uncomment 170-
 figure,
 [f,xi] = ksdensity(S(1000:end));
 plot(xi,f,'LineWidth',2)
