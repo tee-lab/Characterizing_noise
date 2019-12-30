@@ -38,7 +38,7 @@ C(5:6) = r3;
 C(7:8) = r4;
 
 % Sampling time (Time after which system's state would be stored)
-Tint = 1;%ceil((r2+r3+r4)/((N^0.5)*r1)); 
+Tint = 50;%ceil((r2+r3+r4)/((N^0.5)*r1)); 
 
 % Simulation time. I have kept it as a function of sampling time.
 Tend = ceil(Tint*100000);
@@ -60,14 +60,14 @@ for iter = 1:rel
     X1 = ceil(rand(1,1)*N); X2 = N-X1; 
 %     X1 = (randi(2)-1)*N; X2 = N-X1;
 
-	% counter to store number of sampling (see line 91-95)
+	% counter to store number of sampling (see line 95-99)
     n = 0;
     
     % Intitializing system's time 
     T = 0; 
 %     loop = 0;
 
-	%Initializing time at which sampling is done. This will get incremented by Tint after every sampling (see line 96)
+	%Initializing time at which sampling is done. This will get incremented by Tint after every sampling (see line 98)
     Tprint = 0.01; 
     while (T < Tend)
         %         loop = loop + 1
@@ -122,40 +122,38 @@ for iter = 1:rel
     end
 end
 
-% S(S==0) = nan;
-% tSample(tSample==0) = nan;
 tSample = tSample/N;  %Scaling time to mesoscopic scale
 S = S(find(tSample ~= 0));  %Removing all the extra unfilled part of the array
 tSample = tSample(find(tSample ~= 0));  %Removing all the extra unfilled part of the array
-% xlim([0,1])
 
 
 S1(S1==0) = nan;
 S2(S2==0) = nan;
-% Calculating coorelation time
-    t_lag = 500;  %Lag has to be modulated according to parameters
-    S(isnan(S)) = 0;
-    acf = autocorr(S(:,iter),t_lag);
-    t_lag = (1:t_lag+1);
-    t_lag = t_lag';
-    idx = find(~isnan(acf));
-    f = fit(t_lag(idx),acf(idx),'exp1');
-    val = coeffvalues(f);
-    b = val(1,2);
-    a = val(1,1);
-    ct = -1*ceil(1/b);
-    t_acf = tSample(1:length(t_lag));
-    est_tau = tSample(ct);
-    % Expected correlation time according to the deterministic term of the
-    % SDE
-    p = [-r3/2 0 (r3/2-2*r1-2*r4) 0];
-    m = roots(p);
-    if length(m) > 1
-        exp_tau = -2*r1 -2*r4 + (r3/2) - 3/2*(r3*m.^2);
-        exp_tau = 1/abs(exp_tau(2));
-    elseif length(m) == 1
-        exp_tau = 1/(2*r1);
-    end
+
+% Calculating correlation time
+t_lag = 500;  %Lag has to be modulated according to parameters
+S(isnan(S)) = 0;
+acf = autocorr(S(:,iter),t_lag);
+t_lag = (1:t_lag+1);
+t_lag = t_lag';
+idx = find(~isnan(acf));
+f = fit(t_lag(idx),acf(idx),'exp1');
+val = coeffvalues(f);
+b = val(1,2);
+a = val(1,1);
+ct = -1*ceil(1/b);
+t_acf = tSample(1:length(t_lag));
+est_tau = tSample(ct);
+
+% Expected correlation time according to the deterministic term of the SDE
+p = [-r3/2 0 (r3/2-2*r1-2*r4) 0];
+m = roots(p);
+if length(m) > 1
+	exp_tau = -2*r1 -2*r4 + (r3/2) - 3/2*(r3*m.^2);
+    exp_tau = 1/abs(exp_tau(2));
+elseif length(m) == 1
+    exp_tau = 1/(2*r1);
+end
     
 %% Plotting
 % figure,

@@ -38,10 +38,10 @@ C(5:6) = r3;
 C(7:8) = r4;
 
 % Sampling time (Time after which system's state would be stored)
-Tint = 1;%ceil((r2+r3+r4)/((N^0.5)*r1)); 
+Tint = 50;%ceil((r2+r3+r4)/((N^0.5)*r1)); 
 
 % Simulation time. I have kept it as a function of sampling time.
-Tend = ceil(Tint*100000);
+Tend = ceil(Tint*1000000);
 
 % Size of array to store system's state. Usually this will exceed the actual steps it Tint > 1  
 steps = floor(Tend); 
@@ -60,14 +60,14 @@ for iter = 1:rel
     X1 = ceil(rand(1,1)*N); X2 = N-X1; 
 %     X1 = (randi(2)-1)*N; X2 = N-X1;
 
-	% counter to store number of sampling (see line 91-95)
+	% counter to store number of sampling (see line 95-99)
     n = 0;
     
     % Intitializing system's time 
     T = 0; 
 %     loop = 0;
 
-	%Initializing time at which sampling is done. This will get incremented by Tint after every sampling (see line 96)
+	%Initializing time at which sampling is done. This will get incremented by Tint after every sampling (see line 98)
     Tprint = 0.01; 
     while (T < Tend)
         %         loop = loop + 1

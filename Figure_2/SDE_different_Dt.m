@@ -4,7 +4,8 @@
 % deterministic and the stochastic coefficients for diffrent time scales. %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Dt = [1,5,10];  %different time scales (steps) for which the coefficients would be derived
+%different time scales (steps) for which the coefficients would be derived
+Dt = [1,5,10];  
 
 %cell array to store calculated drift coefficient for different time scales
 Drift = cell(length(Dt),1);  
