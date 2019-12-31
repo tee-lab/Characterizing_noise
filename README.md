@@ -21,3 +21,9 @@
 	3. Uncomment line 33 and set the exact parameters used to generate the time series using code __/Figure_2/Gillespie_stochastic_process.m__
 	4. tSample from the code __/Figure_2/Gillespie_stochastic_process.m__ (or from real data) is important for calculaing Tint in line 35.
 	5. Plotting begins from line 76.
+	
+# Codes for Figure 3
+
+1. Run the previous code (__/Figure_2/SDE_different_Dt.m__) to generate plots in Figure 3A (pairwise model, r3 = 0) and 3B (ternary model, r3 = 0.08) for a more continuous $\Delta t$.
+2. Run __/Figure_3/optDt_changing_r1.m__ to generate the data for Figure 3C (r1 = s = flip(1./(2*(10:10:200))), r2 = 1, r3 = 0.08, N = size = 50) and use plot or scatter in matlab to plot optimal Dt vs Correlation time.
+3. Run __/Figure_3optDt_changingN.m__ to generate the data for Figure 3D (r1 = 0.01, r2 = 1, r3 = 0.08, N = size = 50:1:200) and use plot or scatter in matlab to plot optimal Dt vs Correlation time.
