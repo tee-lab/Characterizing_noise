@@ -37,9 +37,11 @@
 	1. Use code __/Figure_4/varying_resolution.m__ to generate time series with different resolution. Set r1 = 0.1, r2 = 1, r3 = 0 for the pairwise model.
 	2. Perform the above step for different N (50, 100, 200). The outputs will be stored in the folder __Characterizing_noise/pairwise/varying_resolution/N_15__, for example. 
 3. **Figure 4C**
-	1. Perform the steps in Figure 4A for the ternary models case (r1 = 0.1, r2 = 1, r3 = 0.08).
+	1. Perform the steps to generate Figure 4A for the ternary models case (r1 = 0.1, r2 = 1, r3 = 0.08).
 4. **Figure 4D**
 	1. Perform the steps in Figure 4B for the ternary models case (r1 = 0.1, r2 = 1, r3 = 0.08).
 5. **Figure 4E and 4F**
-	1. Generate a time series using code __/Figure_2/Gillespie_stochastic_process.m__ with Tint = 10 for the pairwise model (r1 = 0.1, r2 = 1, r3 = 0) for N = 50.
-	2. Run these time series Use code __/Figure4/noise_analysis.m__ 
+	1. Generate a time series using code __/Figure_2/Gillespie_stochastic_process.m__ with Tint = 10 and 50 for the pairwise model (r1 = 0.1, r2 = 1, r3 = 0) for N = 50.
+	2. Run these time series on code __/Figure4/noise_analysis.m__ to get the plots 4E and 4F.
+6. **Figure 4G and 4H**
+	1. Perform the steps used to generate Figure 4E and 4F for the ternary model case ((r1 = 0.1, r2 = 1, r3 = 0.08)) for N = 50.
