@@ -1,5 +1,10 @@
 # Characterizing_noise
 
+
+
+[![DOI](https://zenodo.org/badge/210269637.svg)](https://zenodo.org/badge/latestdoi/210269637)
+
+
 ## This repository contains codes and data used for analysis in the article "Noise-Induced Effects in Collective Dynamics and Inferring Interactions from Data".
 
 # Codes for Figure 2
