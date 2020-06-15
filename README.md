@@ -2,7 +2,7 @@
 
 
 
-[![DOI](https://zenodo.org/badge/210269637.svg)](https://zenodo.org/badge/latestdoi/210269637)
+[![DOI](https://zenodo.org/badge/210269637.svg)](https://zenodo.org/record/3893644)
 
 
 ## This repository contains codes and data used for analysis in the article "Noise-Induced Effects in Collective Dynamics and Inferring Interactions from Data".
